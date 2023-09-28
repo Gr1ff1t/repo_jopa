@@ -5,11 +5,11 @@ class Program
     static void Main()
     {
         Random random = new Random();
-        int secretNumber = random.Next(0, 11);
+        int secretNumber = random.Next(0, 18);
         int attempts = 0;
         bool isGuessed = false;
 
-        Console.WriteLine("Вгадайте число від 0 до 10.");
+        Console.WriteLine("Вгадайте число від 0 до 17.");
 
         while (!isGuessed)
         {
