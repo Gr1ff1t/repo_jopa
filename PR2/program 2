@@ -1,0 +1,38 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        int[,] matrix = new int[3, 3];
+        int sum = 0;
+
+        Console.WriteLine("Введіть значення елементів матриці 3x3:");
+
+        // Заповнення матриці користувачем
+        for (int i = 0; i < 3; i++)
+        {
+            for (int j = 0; j < 3; j++)
+            {
+                Console.Write($"Елемент [{i + 1},{j + 1}]: ");
+                if (int.TryParse(Console.ReadLine(), out int num))
+                {
+                    matrix[i, j] = num;
+                }
+                else
+                {
+                    Console.WriteLine("Некоректний ввід. Введіть ціле число.");
+                    j--; // Повторити введення для цього елемента.
+                }
+            }
+        }
+
+        // Знаходження суми елементів головної діагоналі
+        for (int i = 0; i < 3; i++)
+        {
+            sum += matrix[i, i];
+        }
+
+        Console.WriteLine($"Сума елементів головної діагоналі: {sum}");
+    }
+}
