@@ -1,0 +1,34 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Random random = new Random();
+        int secretNumber = random.Next(0, 11);
+        int attempts = 0;
+        bool isGuessed = false;
+
+        Console.WriteLine("Вгадайте число від 0 до 10.");
+
+        while (!isGuessed)
+        {
+            Console.Write("Введіть ваше число: ");
+            if (int.TryParse(Console.ReadLine(), out int userGuess))
+            {
+                attempts++;
+
+                if (userGuess == secretNumber)
+                {
+                    Console.WriteLine($"Вітаємо! Ви вгадали число {secretNumber} за {attempts} спроб.");
+                    isGuessed = true;
+                }
+                else if (userGuess < secretNumber)
+                {
+                    Console.WriteLine("Більше.");
+                }
+                else
+                {
+                    Console.WriteLine("Менше.");
+                }
+            }
